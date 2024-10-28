@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Goall</title>
+        <script src="index.js"></script>
+    </head>
+    
+    <body>
+            <div id="input">
+                <input type="text" id="table" placeholder="enter table" style="width:500px">
+            </div>
+               <button onclick="getWeb()">Get Table Relationship</button>
+    
+            
+
+        <script>
+            var inp = document.getElementById("input");
+            var a = inp.innerText
+            function getWeb(){
+                var url = document.getElementById("table").value;
+                var table = url.split(".")[1]
+                url = `https://data.corp.google.com/details/projects/google/datasets/youtube_abuse_data/entries/${table}/relationships`
+                if (url !== "") {
+                    window.open(url,"_blank");
+                } else {
+                    alert("Please enter a valid URL.");
+                }
+            }
+            
+        </script>
+    </body>
+</html>
