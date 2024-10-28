@@ -17,7 +17,13 @@
             var a = inp.innerText
             function getWeb(){
                 var url = document.getElementById("table").value;
-                var table = url.split(".")[1]
+                if(url.indexOf(".")==-1){
+                    table =url
+                }else{
+                    var tableData = url.split(".")
+                    var table = tableData[1]
+                }
+                
                 url = `https://data.corp.google.com/details/projects/google/datasets/youtube_abuse_data/entries/${table}/relationships`
                 if (url !== "") {
                     window.open(url,"_blank");
